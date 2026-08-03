@@ -31,7 +31,7 @@ h1 {
     margin: 0;
     padding: 0;
     
-    font-size: 48px;
+    font-size: 40pt;
     font-weight: 900;
 }
 
@@ -39,7 +39,7 @@ p {
     margin: 0;
     padding: 0;
 
-    font-size: 24px;
+    font-size: 20pt;
     font-weight: 600;
 }
 
@@ -50,12 +50,13 @@ p {
     align-items: center;
     text-align: center;
 
-    gap: 8px;
+    gap: 8pt;
 }
 
 .title {
   display: flex;
-  align-items: center;
 
-  gap: 16px;
+  align-items: center;
+  
+  gap: 16pt;
 }
