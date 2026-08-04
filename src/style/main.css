@@ -2,61 +2,109 @@
 	color-scheme: light dark;
 
 	--bg-color: light-dark(#ffffff, #121215);
-	--text-color: light-dark(#333333, #f5f5f5);
-	--accent-color: light-dark(#0047AB, #0047AB);
+	--text-color: light-dark(#333335, #f5f5f5);
+	--accent-color: #0047AB;
 }
 
 html,
 body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	background: var(--bg-color);
+	color: var(--text-color);
 
-    background-color: var(--bg-color);
-    color: var(--text-color);
-
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
+	font-family: "Inter", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
 }
 
 h1 {
-    margin: 0;
-    padding: 0;
-    
-    font-size: 40pt;
-    font-weight: 900;
+	margin: 0;
+
+	font-size: clamp(2rem, 6vw, 3.5rem);
+	font-weight: 900;
+	line-height: 1.1;
 }
 
 p {
-    margin: 0;
-    padding: 0;
+	margin: 0;
 
-    font-size: 20pt;
-    font-weight: 600;
+	max-width: min(700px, 90vw);
+
+	font-size: clamp(1rem, 2vw, 1.5rem);
+	font-weight: 600;
+	line-height: 1.5;
+}
+
+.section {
+	position: relative;
+
+	width: 100%;
+	min-height: 100dvh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	padding: 2rem;
+	box-sizing: border-box;
 }
 
 .content {
-    display: flex;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
 
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
-    gap: 8pt;
+	gap: 1rem;
 }
 
 .title {
-  display: flex;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
 
-  align-items: center;
-  
-  gap: 16pt;
+	gap: 1rem;
+}
+
+#logo,
+#about {
+	width: clamp(48px, 10vw, 96px);
+	height: auto;
+}
+
+.scrolldown {
+	position: absolute;
+	bottom: 2rem;
+	left: 50%;
+	transform: translateX(-50%);
+
+	font-size: 0.95rem;
+	opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+	.section {
+		padding: 1.5rem;
+	}
+
+	.title {
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	p {
+		max-width: 100%;
+	}
+
+	.scrolldown {
+		bottom: 1.25rem;
+	}
 }
