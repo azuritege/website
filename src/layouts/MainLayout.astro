@@ -1,0 +1,25 @@
+---
+import "../styles/main.css";
+
+import Header from "../components/Header.astro";
+import Navigation from "../components/Navigation.astro";
+
+const { title, image } = Astro.props;
+---
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link
+	href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+	rel="stylesheet"
+/>
+
+<div class="section">
+    <div class="content">
+        <Header title=`${title}` src=`${image}`></Header>
+		<slot />
+		<Navigation />
+	</div>
+
+	<p class="info"><span class="gray">made by fowlestota - </span><a href="https://bsky.app/profile/fowlestota.bsky.social">bluesky</a></p>
+</div>

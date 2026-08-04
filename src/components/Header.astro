@@ -1,0 +1,39 @@
+---
+import "../styles/variables.css";
+
+const { title, src } = Astro.props;
+---
+
+<style>
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .logo {
+        width: clamp(48px, 10vw, 96px);
+        aspect-ratio: 1;
+
+        background-color: var(--text-color);
+
+        -webkit-mask-image: var(--logo-src);
+        mask-image: var(--logo-src);
+
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+
+        -webkit-mask-position: center;
+        mask-position: center;
+
+        -webkit-mask-size: contain;
+        mask-size: contain;
+    }
+</style>
+
+<div class="header">
+    <div class="logo" style={`--logo-src: url("${src}")`} role="img" aria-label="Logo"></div>
+    <h1>{title}</h1>
+</div>

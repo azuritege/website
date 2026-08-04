@@ -1,9 +1,35 @@
-:root {
-	color-scheme: light dark;
+@import "./variables.css";
 
-	--bg-color: light-dark(#ffffff, #121215);
-	--text-color: light-dark(#121215, #ffffff);
-	--accent-color: #0047AB;
+@property --gradient-brightness {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 60%;
+}
+
+@property --gradient-size {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 80%;
+}
+
+@keyframes pulse {
+    from {
+        --gradient-brightness: 60%;
+        --gradient-size: 80%;
+    }
+    to {
+        --gradient-brightness: 20%;
+        --gradient-size: 110%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+	to {
+		opacity: 1;
+	}
 }
 
 html,
@@ -16,18 +42,20 @@ body {
 }
 
 body {
-    background: radial-gradient(circle at 50%, color-mix(in srgb, var(--accent-color), var(--bg-color) 30%), var(--bg-color) 90%);
+    background: radial-gradient(circle at 50%, color-mix(in srgb, var(--accent-color), var(--bg-color) var(--gradient-brightness)), var(--bg-color) var(--gradient-size));
 	color: var(--text-color);
 
 	font-family: "Inter", sans-serif;
 	font-optical-sizing: auto;
 	font-style: normal;
+
+    animation: pulse 5s ease-in-out infinite alternate;
 }
 
 h1 {
 	margin: 0;
 
-	font-size: clamp(2rem, 6vw, 3.5rem);
+	font-size: 40pt;
 	font-weight: 900;
 	line-height: 1.1;
 }
@@ -37,7 +65,7 @@ p {
 
 	max-width: min(700px, 90vw);
 
-	font-size: clamp(1rem, 2vw, 1.5rem);
+	font-size: 16pt;
 	font-weight: 600;
 	line-height: 1.5;
 }
@@ -48,6 +76,7 @@ p {
 
 a {
     color: var(--text-color);
+	font-weight: 700;
 }
 
 .section {
@@ -60,7 +89,7 @@ a {
 	justify-content: center;
 	align-items: center;
 
-	padding: 2rem;
+	padding: 4pt;
 	box-sizing: border-box;
 }
 
@@ -70,43 +99,9 @@ a {
 	align-items: center;
 	text-align: center;
 
-	gap: 1rem;
-}
+	gap: 8pt;
 
-.title {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-
-	gap: 1rem;
-}
-
-#logo,
-#about {
-	width: clamp(48px, 10vw, 96px);
-	aspect-ratio: 1;
-
-	background-color: var(--text-color);
-	background-repeat: no-repeat;
-
-	-webkit-mask-repeat: no-repeat;
-	-webkit-mask-position: center;
-	-webkit-mask-size: contain;
-
-	mask-repeat: no-repeat;
-	mask-position: center;
-	mask-size: contain;
-}
-
-#logo {
-	-webkit-mask-image: url("/azurite.svg");
-	mask-image: url("/azurite.svg");
-}
-
-#about {
-	-webkit-mask-image: url("/about.svg");
-	mask-image: url("/about.svg");
+	animation: fadeIn 1s ease-in-out forwards;
 }
 
 .scrolldown {
@@ -115,7 +110,7 @@ a {
 	left: 50%;
 	transform: translateX(-50%);
 
-	font-size: 0.95rem;
+	font-size: 12pt;
 	opacity: 0.7;
 }
 
@@ -125,7 +120,17 @@ a {
 	left: 50%;
 	transform: translateX(-50%);
 
-	font-size: 0.95rem;
+	font-size: 12pt;
+}
+
+.links {
+	display: flex;
+	flex-direction: row;
+
+	margin-top: 24pt;
+	gap: 1rem;
+
+	font-size: 20pt;
 }
 
 @media (max-width: 768px) {
