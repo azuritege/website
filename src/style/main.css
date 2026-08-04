@@ -2,7 +2,7 @@
 	color-scheme: light dark;
 
 	--bg-color: light-dark(#ffffff, #121215);
-	--text-color: light-dark(#333335, #f5f5f5);
+	--text-color: light-dark(#121215, #ffffff);
 	--accent-color: #0047AB;
 }
 
@@ -85,7 +85,28 @@ a {
 #logo,
 #about {
 	width: clamp(48px, 10vw, 96px);
-	height: auto;
+	aspect-ratio: 1;
+
+	background-color: var(--text-color);
+	background-repeat: no-repeat;
+
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	-webkit-mask-size: contain;
+
+	mask-repeat: no-repeat;
+	mask-position: center;
+	mask-size: contain;
+}
+
+#logo {
+	-webkit-mask-image: url("/azurite.svg");
+	mask-image: url("/azurite.svg");
+}
+
+#about {
+	-webkit-mask-image: url("/about.svg");
+	mask-image: url("/about.svg");
 }
 
 .scrolldown {
