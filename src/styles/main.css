@@ -1,5 +1,3 @@
-@import "./variables.css";
-
 @property --gradient-brightness {
 	syntax: "<percentage>";
 	inherits: false;
