@@ -4,7 +4,7 @@ import "../styles/main.css";
 import Header from "../components/Header.astro";
 import Navigation from "../components/Navigation.astro";
 
-const { title, image } = Astro.props;
+const { title, image, page } = Astro.props;
 ---
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,8 +18,8 @@ const { title, image } = Astro.props;
     <div class="content">
         <Header title=`${title}` src=`${image}`></Header>
 		<slot />
-		<Navigation />
+		<Navigation page=`${page}`/>
 	</div>
 
-	<p class="info"><span class="gray">made by fowlestota - </span><a href="https://bsky.app/profile/fowlestota.bsky.social">bluesky</a> <a href="https://github.com/azuritege">github</a> <a href="https://www.youtube.com/@azuritege">youtube</a></p>
+	<p class="info"><span class="gray">made by fowlestota -</span> <a href="https://bsky.app/profile/fowlestota.bsky.social">bluesky</a> <a href="https://github.com/azuritege">github</a> <a href="https://www.youtube.com/@azuritege">youtube</a> <span class="gray">|</span> <a href="/azurite/">azurite</a> <a href="/velocity/">velocity</a></p>
 </div>

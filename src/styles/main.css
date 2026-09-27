@@ -1,32 +1,34 @@
 @import "./variables.css";
 
 @property --gradient-brightness {
-    syntax: "<percentage>";
-    inherits: false;
-    initial-value: 60%;
+	syntax: "<percentage>";
+	inherits: false;
+	initial-value: 60%;
 }
 
 @property --gradient-size {
-    syntax: "<percentage>";
-    inherits: false;
-    initial-value: 80%;
+	syntax: "<percentage>";
+	inherits: false;
+	initial-value: 80%;
 }
 
 @keyframes pulse {
-    from {
-        --gradient-brightness: 60%;
-        --gradient-size: 80%;
-    }
-    to {
-        --gradient-brightness: 20%;
-        --gradient-size: 110%;
-    }
+	from {
+		--gradient-brightness: 60%;
+		--gradient-size: 80%;
+	}
+
+	to {
+		--gradient-brightness: 20%;
+		--gradient-size: 110%;
+	}
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
+	from {
+		opacity: 0;
+	}
+
 	to {
 		opacity: 1;
 	}
@@ -34,22 +36,32 @@
 
 html,
 body {
-	margin: 0;
-	padding: 0;
 	width: 100%;
 	height: 100%;
+	margin: 0;
+	padding: 0;
+
 	overflow-x: hidden;
 }
 
 body {
-    background: radial-gradient(circle at 50%, color-mix(in srgb, var(--accent-color), var(--bg-color) var(--gradient-brightness)), var(--bg-color) var(--gradient-size));
+	background: radial-gradient(
+		circle at 50%,
+		color-mix(
+			in srgb,
+			var(--accent-color),
+			var(--bg-color) var(--gradient-brightness)
+		),
+		var(--bg-color) var(--gradient-size)
+	);
+
 	color: var(--text-color);
 
 	font-family: "Inter", sans-serif;
 	font-optical-sizing: auto;
 	font-style: normal;
 
-    animation: pulse 5s ease-in-out infinite alternate;
+	animation: pulse 5s ease-in-out infinite alternate;
 }
 
 h1 {
@@ -61,35 +73,30 @@ h1 {
 }
 
 p {
-	margin: 0;
-
 	max-width: min(700px, 90vw);
+	margin: 0;
 
 	font-size: 16pt;
 	font-weight: 600;
 	line-height: 1.5;
 }
 
-.gray {
-    opacity: 0.7;
-}
-
 a {
-    color: var(--text-color);
+	color: var(--text-color);
 	font-weight: 700;
 }
 
 .section {
 	position: relative;
 
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 	width: 100%;
 	min-height: 100dvh;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
 	padding: 4pt;
+
 	box-sizing: border-box;
 }
 
@@ -97,57 +104,55 @@ a {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	text-align: center;
 
 	gap: 8pt;
+	text-align: center;
 
 	animation: fadeIn 1s ease-in-out forwards;
 }
 
-.scrolldown {
-	position: absolute;
-	bottom: 2rem;
-	left: 50%;
-	transform: translateX(-50%);
-
-	font-size: 12pt;
-	opacity: 0.7;
-}
-
+.scrolldown,
 .info {
 	position: absolute;
 	bottom: 2rem;
 	left: 50%;
+
 	transform: translateX(-50%);
 
 	font-size: 12pt;
+}
+
+.scrolldown {
+	opacity: 0.7;
 }
 
 .links {
 	display: flex;
 	flex-direction: row;
 
-	margin-top: 24pt;
 	gap: 1rem;
+	margin-top: 24pt;
 
 	font-size: 20pt;
 }
 
-@media (max-width: 768px) {
-	.section {
-		padding: 1.5rem;
-	}
+.links a,
+.links p {
+	color: var(--text-color);
 
-	.title {
-		flex-direction: column;
-		gap: 0.75rem;
-	}
+	margin: 0;
 
-	p {
-		max-width: 100%;
-	}
+	font-size: 20pt;
+	font-weight: 700;
+	line-height: 1.5;
 
-	.scrolldown {
-		bottom: 1.25rem;
-	}
+	text-decoration: none;
+}
+
+.links a {
+	text-decoration: underline;
+}
+
+.gray {
+	opacity: 0.7;
 }

@@ -1,8 +1,10 @@
 ---
 import "../styles/main.css";
+
+const { page } = Astro.props;
 ---
 
 <div class="links">
-    <a href="/home/">home</a>
-    <a href="/about/">about</a>
+    <a href=`/${page}/`>home</a>
+    <a href=`/${page}/about/`>about</a>
 </div>
